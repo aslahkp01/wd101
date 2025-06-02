@@ -12,7 +12,8 @@
     function setDOBRange() {
       const today = new Date();
       const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
-      const minDate = new Date(today.getFullYear() - 55, today.getMonth(), today.getDate());
+      const minDate = new Date(today.getFullYear() - 56, today.getMonth(), today.getDate());
+      const theDate = new Date(1970, 1, 2, 5, 30, 0);
       dobInput.max = maxDate.toISOString().split("T")[0];
       dobInput.min = minDate.toISOString().split("T")[0];
     }
@@ -64,7 +65,7 @@
         age--;
       }
 
-      if (age < 18 || age > 55) {
+      if (age < 18 || age >= 56) {
         dobError.textContent = "Age must be between 18 and 55.";
         return;
       } if (!termsCheckbox.checked) {
@@ -89,6 +90,5 @@
     
     
     window.onload = function () {
-  localStorage.removeItem("registrationUsers"); 
   displayUsers();
 };
